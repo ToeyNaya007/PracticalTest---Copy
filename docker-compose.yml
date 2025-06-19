@@ -1,0 +1,49 @@
+services:
+  # Frontend (Next.js หรือ React)
+  frontend:
+    build:
+      context: ./frontend  # Path ไปที่โฟลเดอร์ของ Frontend
+    ports:
+      - "3000:3000"  # เชื่อมต่อพอร์ต 3000 ของ container กับพอร์ต 3000 ของ host
+    depends_on:
+      - backend  # กำหนดว่า frontend ต้องรอ backend ให้พร้อมก่อน
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:5000 # กำหนด URL ของ API สำหรับ Frontend
+    networks:
+      - app-network
+
+  # Backend (Node.js/Express API)
+  backend:
+    build:
+      context: ./backend  # Path ไปที่โฟลเดอร์ของ Backend
+    ports:
+      - "5000:5000"  # เชื่อมต่อพอร์ต 5000 ของ container กับพอร์ต 5000 ของ host
+    environment:
+      - DATABASE_URL=mysql://root:password@mysql:3306/practicaltest  # URL ของฐานข้อมูล MySQL
+    depends_on:
+      - mysql  # กำหนดว่า backend ต้องรอ MySQL ให้พร้อมก่อน
+    networks:
+      - app-network
+
+  # Database (MySQL)
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password  # รหัสผ่าน root ของ MySQL
+      MYSQL_DATABASE: practicaltest  # ชื่อฐานข้อมูลที่ต้องการสร้าง
+    ports:
+      - "3306:3306"  # เชื่อมต่อพอร์ต 3306 ของ container กับพอร์ต 3306 ของ host
+    volumes:
+      - mysql-data:/var/lib/mysql  # กำหนด volume เพื่อเก็บข้อมูลฐานข้อมูล
+    networks:
+      - app-network
+
+# Networks สำหรับเชื่อมต่อทุก container
+networks:
+  app-network:
+    driver: bridge
+
+# Volumes สำหรับเก็บข้อมูลของ MySQL
+volumes:
+  mysql-data:
+    driver: local
