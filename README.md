@@ -5,12 +5,35 @@
 
 ## โดยรายละเอียดประกอบด้วย
 ### ระบบ Login และ Register ต้องเข้าสู่ระบบก่อนถึงจะใช้งานระบบได้
-หน้า Page ประกอบด้วย
-### /dashboard ดูภาพรวมของระบบ
-### /users ดูรายการผู้ใช้ในรูปแบบตาราง พร้อมทั้ง ส่งออกเป็นรูปแบบ CSV
-### /users/add สำหรับเพิ่มผู้ใช้ 
-### /roles ดูรายการ role รูปแบบตาราง
+### หน้า Page ประกอบด้วย
+/dashboard ดูภาพรวมของระบบ
+/users ดูรายการผู้ใช้ในรูปแบบตาราง พร้อมทั้ง ส่งออกเป็นรูปแบบ CSV
+/users/add สำหรับเพิ่มผู้ใช้ 
+/roles ดูรายการ role รูปแบบตาราง
 
+### API ประกอบด้วย
+POST /register สำหรับให้ผู้ใช้สมัครสมาชิก โดยจะได้ role เป็น user
+bodyRequire name, email, password
+POST /login สำหรับให้ผู้ใช้เข้าสู่ระบบ
+bodyRequire email, password
+
+(GET /users) ดึงข้อมูลผู้ใช้ทั้งหมด
+(GET /users/:id) ดึงข้อมูลผู้ใช้ตามไอดี
+(POST /users) เพิ่มข้อมูลผู้ใช้ในหลังบ้าน 
+bodyRequire name, email, password
+(PUT /users/:id) แก้ไขข้อมูลผู้ใช้
+bodyRequire name, email, password, roleId
+DELETE /users/:id ลบข้อมูลผู้ใช้
+
+(GET /roles) ดึงข้อมูลบทบาททั้งหมด
+(POST /roles) เพิ่มบทบาทใหม่
+
+(GET /permissions) ดึงข้อมูลการอนุญาต
+(POST /permissions) เพิ่มข้อมูลการอนุญาต
+
+(GET /dashboard-stats) ดึงข้อมูลสถิติของผู้ใช้
+(GET /dashboard-LastCreatedUsers) ดึงข้อมูลผู้ใช้ที่สมัครล่าสุด 6 คน
+(GET /dashboard-userGrowth) ดึงข้อมูลผู้ใช้ย้อนหลัง 3 เดือน
 
 ## ขั้นตอนการติดตั้ง
 
