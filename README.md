@@ -78,6 +78,7 @@ cd PracticalTest---Copy
   - หากใช้ **npm**:
     ```bash
     npm install
+    npx prisma generate
     ```
 
   - หากใช้ **yarn**:
