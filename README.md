@@ -12,28 +12,28 @@
 /roles ดูรายการ role รูปแบบตาราง
 
 ### API ประกอบด้วย
-POST /register สำหรับให้ผู้ใช้สมัครสมาชิก โดยจะได้ role เป็น user
-bodyRequire name, email, password
-POST /login สำหรับให้ผู้ใช้เข้าสู่ระบบ
-bodyRequire email, password
+POST /register สำหรับให้ผู้ใช้สมัครสมาชิก โดยจะได้ role เป็น user<br>
+bodyRequire name, email, password<br>
+POST /login สำหรับให้ผู้ใช้เข้าสู่ระบบ<br>
+bodyRequire email, password<br>
 
-(GET /users) ดึงข้อมูลผู้ใช้ทั้งหมด
-(GET /users/:id) ดึงข้อมูลผู้ใช้ตามไอดี
-(POST /users) เพิ่มข้อมูลผู้ใช้ในหลังบ้าน 
+(GET /users) ดึงข้อมูลผู้ใช้ทั้งหมด<br>
+(GET /users/:id) ดึงข้อมูลผู้ใช้ตามไอดี<br>
+(POST /users) เพิ่มข้อมูลผู้ใช้ในหลังบ้าน <br>
 bodyRequire name, email, password
-(PUT /users/:id) แก้ไขข้อมูลผู้ใช้
+(PUT /users/:id) แก้ไขข้อมูลผู้ใช้<br>
 bodyRequire name, email, password, roleId
-DELETE /users/:id ลบข้อมูลผู้ใช้
+DELETE /users/:id ลบข้อมูลผู้ใช้<br>
 
-(GET /roles) ดึงข้อมูลบทบาททั้งหมด
-(POST /roles) เพิ่มบทบาทใหม่
+(GET /roles) ดึงข้อมูลบทบาททั้งหมด<br>
+(POST /roles) เพิ่มบทบาทใหม่<br>
 
-(GET /permissions) ดึงข้อมูลการอนุญาต
-(POST /permissions) เพิ่มข้อมูลการอนุญาต
+(GET /permissions) ดึงข้อมูลการอนุญาต<br>
+(POST /permissions) เพิ่มข้อมูลการอนุญาต<br>
 
-(GET /dashboard-stats) ดึงข้อมูลสถิติของผู้ใช้
-(GET /dashboard-LastCreatedUsers) ดึงข้อมูลผู้ใช้ที่สมัครล่าสุด 6 คน
-(GET /dashboard-userGrowth) ดึงข้อมูลผู้ใช้ย้อนหลัง 3 เดือน
+(GET /dashboard-stats) ดึงข้อมูลสถิติของผู้ใช้<br>
+(GET /dashboard-LastCreatedUsers) ดึงข้อมูลผู้ใช้ที่สมัครล่าสุด 6 คน<br>
+(GET /dashboard-userGrowth) ดึงข้อมูลผู้ใช้ย้อนหลัง 3 เดือน<br>
 
 ## ขั้นตอนการติดตั้ง
 
