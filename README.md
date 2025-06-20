@@ -11,26 +11,27 @@
 /users/add สำหรับเพิ่มผู้ใช้ 
 /roles ดูรายการ role รูปแบบตาราง
 
-### API ประกอบด้วย
+## API ประกอบด้วย
+### 1. Auth
 POST /register สำหรับให้ผู้ใช้สมัครสมาชิก โดยจะได้ role เป็น user<br>
 bodyRequire name, email, password<br>
 POST /login สำหรับให้ผู้ใช้เข้าสู่ระบบ<br>
 bodyRequire email, password<br>
-
+### 2. Users
 (GET /users) ดึงข้อมูลผู้ใช้ทั้งหมด<br>
 (GET /users/:id) ดึงข้อมูลผู้ใช้ตามไอดี<br>
 (POST /users) เพิ่มข้อมูลผู้ใช้ในหลังบ้าน <br>
-bodyRequire name, email, password
+bodyRequire name, email, password<br>
 (PUT /users/:id) แก้ไขข้อมูลผู้ใช้<br>
-bodyRequire name, email, password, roleId
+bodyRequire name, email, password, roleId<br>
 DELETE /users/:id ลบข้อมูลผู้ใช้<br>
-
+### 3. Roles
 (GET /roles) ดึงข้อมูลบทบาททั้งหมด<br>
 (POST /roles) เพิ่มบทบาทใหม่<br>
-
+### 4. Permissions
 (GET /permissions) ดึงข้อมูลการอนุญาต<br>
 (POST /permissions) เพิ่มข้อมูลการอนุญาต<br>
-
+### 5. Dashboard
 (GET /dashboard-stats) ดึงข้อมูลสถิติของผู้ใช้<br>
 (GET /dashboard-LastCreatedUsers) ดึงข้อมูลผู้ใช้ที่สมัครล่าสุด 6 คน<br>
 (GET /dashboard-userGrowth) ดึงข้อมูลผู้ใช้ย้อนหลัง 3 เดือน<br>
